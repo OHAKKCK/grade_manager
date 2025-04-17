@@ -6,7 +6,7 @@ import os
 
 def create_app():
    
-    load_dotenv()
+    load_dotenv(override=True)
 
     app = Flask(__name__)
     
