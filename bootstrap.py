@@ -1,6 +1,7 @@
 from flask import Flask
 from dotenv import load_dotenv
 from app.routes import register_routes
+from app.extensions import register_extensions
 import os
 
 def create_app():
@@ -12,5 +13,6 @@ def create_app():
     app.config['DEBUG'] = eval(os.getenv("MODE_DEBUG"))
     
     register_routes(app)
+    register_extensions(app)
 
     return app
