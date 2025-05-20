@@ -1,0 +1,11 @@
+{% extends "layouts/_base.html" %}
+
+{% block layout_content %}
+    <div class="d-flex">
+        {% include 'macros/side-menu.html' %}
+        <div id="page-content" class="px-5 pt-4 w-100">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
