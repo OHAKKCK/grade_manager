@@ -1,0 +1,30 @@
+
+
+{% macro student_form (url, method, form) -%}
+<form method="{{method}}" action="{{url}}" novalidate>
+    {{ form.hidden_tag() }} 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.firtnames.label(class="form-label") }}
+                {{ form.firtnames(class="form-control", placeholder="Nombres del Estudiante") }}
+                {% for error in form.firtnames.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.lastnames.label(class="form-label") }}
+                {{ form.lastnames(class="form-control", placeholder="Apellidos del Estudiante") }}
+                {% for error in form.lastnames.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endmacro %}
