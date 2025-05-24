@@ -1,13 +1,15 @@
 from flask_login import LoginManager
 from flask import Flask
 
+
 login_manager = LoginManager()
 
 
 @login_manager.user_loader
 def load_user(user_id):
+    from app.extensions.alchemy import alchemy
     from app.models import User
-    return User.query.get(int(user_id))
+    return alchemy.session.get(User, int(user_id))
 
 
 def extension_login(app: Flask):
