@@ -1,0 +1,42 @@
+{% extends "layouts/clean.html" %} 
+{% from "utils/macros/_form.html" import form_field, form_field_check, form_submit %}
+
+
+{% block content %}
+    <div class="container-fluid p-0">
+    <div class="row g-0 justify-content-end">
+        <div class="col-md-6 bg-dark">
+        <div class="min-vh-100 shadow d-flex align-items-center">
+            <div class="row g-0 flex-grow-1">
+            <div class="col-md-7">
+                <div class="ps-4">
+                <div class="card">
+                    <div class="card-body">
+                    <h3 class="card-title text-black mb-4">Inicio de Sesión</h3>
+                    <hr>
+                    <form
+                        action="{{ url_for('auth.login') }}"
+                        method="POST"
+                        name="login_user_form"
+                        data-turbo="false"
+                        novalidate
+                    >
+                        {{ form.hidden_tag() }}
+                        {{form_field(form.username)}}
+                        {{form_field(form.password)}}
+                        {{form_field_check(form.remember) }}
+                        {% include "utils/alerts.html"  %}
+                        <div class="d-grid gap-2">
+                            {{form_submit(form.submit) }}
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
