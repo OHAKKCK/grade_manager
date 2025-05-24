@@ -9,6 +9,8 @@ dotenv = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
 flask-login = "*"
+pytest = "*"
+pytest-flask = "*"
 
 [dev-packages]
 
