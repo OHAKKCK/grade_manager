@@ -2,6 +2,7 @@ from flask import Flask
 from dotenv import load_dotenv
 from app.routes import register_routes
 from app.extensions import register_extensions
+from app.context import inject_user
 import os
 
 def create_app():
@@ -15,5 +16,7 @@ def create_app():
 
     register_routes(app)
     register_extensions(app)
+
+    app.context_processor(inject_user)
 
     return app
